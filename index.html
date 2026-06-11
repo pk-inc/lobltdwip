@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Liberty Overseas Brothers Limited - General Contractors</title>
+  <meta name="description" content="Enquire with Liberty Overseas Brothers Ltd (LOBL) — premier general contractors, procurement, civil engineering, and project delivery specialists." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=Public+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue-deep: #06122d;
+      --blue-mid:  #0f2552;
+      --blue-bright: #1c52b8;
+      --blue-light: #3a82ee;
+      --gold:      #d4af37;
+      --gold-light: #f3e5ab;
+      --white:     #ffffff;
+      --off-white: #f5f7fa;
+      --text-muted: rgba(255, 255, 255, 0.75);
+      --card-bg:   rgba(6, 18, 45, 0.85);
+      --card-border: rgba(255, 255, 255, 0.1);
+      --radius:    12px;
+      --shadow-lg: 0 20px 50px rgba(0,0,0,0.6);
+    }
+
+    html {
+      scroll-behavior: smooth;
+      height: 100%;
+    }
+
+    body {
+      font-family: 'Public Sans', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      color: var(--white);
+      overflow-x: hidden;
+      background-color: var(--blue-deep);
+      font-weight: 400;
+    }
+
+    /* ─── BACKGROUND SLIDESHOW ─────────────────────────────────── */
+    .bg-slideshow {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+    }
+
+    .bg-slide {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1.8s ease-in-out;
+    }
+
+    .bg-slide.active { opacity: 1; }
+
+    .bg-slide:nth-child(1) {
+      background-image: url('assets/hero_images/9de48c430a0c47eed9c344236e3e0838.jpg');
+    }
+    .bg-slide:nth-child(2) {
+      background-image: url('assets/hero_images/a5026a8ed5c953df56511a50cdad4cce.jpg');
+    }
+
+    /* Deep overlay so text reads beautifully */
+    .bg-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(
+        135deg,
+        rgba(4, 12, 30, 0.88) 0%,
+        rgba(8, 22, 50, 0.80) 50%,
+        rgba(4, 12, 30, 0.92) 100%
+      );
+    }
+
+    /* ─── PAGE WRAPPER ─────────────────────────────────────────── */
+    .page {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* ─── HEADER / LOGO ────────────────────────────────────────── */
+    header {
+      padding: 24px 40px 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+    }
+
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-wrap img {
+      height: 128px;
+      width: auto;
+    }
+
+    /* ─── SPLIT VIEW (Fits in 1 Screen on Desktop) ─────────────── */
+    .main-content {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      max-width: 1300px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 10px 40px 40px;
+      align-items: center;
+    }
+
+    /* ─── LEFT COLUMN: TEXT ────────────────────────────────────── */
+    .info-column {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-right: 20px;
+    }
+
+    .badge {
+      align-self: flex-start;
+      background: rgba(212, 175, 55, 0.15);
+      border: 1px solid var(--gold);
+      color: var(--gold-light);
+      padding: 6px 14px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      border-radius: 50px;
+      margin-bottom: 24px;
+    }
+
+    .info-column h1 {
+      font-family: 'Archivo', sans-serif;
+      font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -1px;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, var(--white) 50%, var(--gold-light) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .info-column p {
+      font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 32px;
+      font-weight: 300;
+    }
+
+    .features-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .feature-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .feature-icon {
+      color: var(--gold);
+      font-size: 1.2rem;
+      line-height: 1;
+      margin-top: 2px;
+    }
+
+    .feature-text h3 {
+      font-family: 'Archivo', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: var(--white);
+    }
+
+    .feature-text p {
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.6);
+      line-height: 1.4;
+      margin-bottom: 0;
+    }
+
+    /* ─── RIGHT COLUMN: FORM CARD ──────────────────────────────── */
+    .form-column {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+
+    .form-card {
+      background: #091225;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 4px;
+      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.5);
+      padding: 36px;
+      width: 100%;
+      max-width: 520px;
+      position: relative;
+    }
+
+    .form-card h2 {
+      font-family: 'Archivo', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: var(--white);
+      letter-spacing: -0.3px;
+    }
+
+    .form-card .subtitle {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.5);
+      margin-bottom: 24px;
+    }
+
+    /* ─── FORM ELEMENTS ────────────────────────────────────────── */
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px 16px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-group.full { grid-column: 1 / -1; }
+
+    label {
+      font-size: 0.70rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #94a3b8;
+    }
+
+    input, select, textarea {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 4px;
+      padding: 11px 14px;
+      font-size: 0.9rem;
+      font-family: 'Public Sans', sans-serif;
+      color: var(--white);
+      outline: none;
+      transition: all 0.2s ease;
+      width: 100%;
+    }
+
+    input::placeholder, textarea::placeholder {
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    select {
+      appearance: none;
+      -webkit-appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23ffffff' stroke-width='1.8' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      padding-right: 36px;
+      cursor: pointer;
+    }
+
+    select option {
+      background: #091225;
+      color: var(--white);
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: #ffffff;
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: none;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .btn-submit {
+      margin-top: 10px;
+      width: 100%;
+      padding: 14px;
+      font-family: 'Archivo', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: #091225;
+      background: #ffffff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-submit:hover {
+      background: #e2e8f0;
+    }
+
+    .btn-submit:active {
+      background: #cbd5e1;
+    }
+
+    /* Success message state */
+    .success-msg {
+      display: none;
+      text-align: center;
+      padding: 24px 10px;
+    }
+
+    .success-msg .check-icon {
+      width: 54px; height: 54px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px solid #ffffff;
+      color: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      font-size: 1.6rem;
+      font-weight: bold;
+    }
+
+    .success-msg h3 {
+      font-family: 'Archivo', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .success-msg p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    /* ─── FOOTER (Only revealed by scrolling down) ─────────────── */
+    footer {
+      background: rgba(3, 10, 26, 0.92);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 40px 40px 24px;
+      margin-top: auto; /* Push down */
+    }
+
+    .footer-offices {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      max-width: 1200px;
+      margin: 0 auto 28px;
+    }
+
+    .office h4 {
+      font-family: 'Archivo', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--gold);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .office h4::before {
+      content: '';
+      display: inline-block;
+      width: 14px;
+      height: 2px;
+      background: var(--gold);
+    }
+
+    .office address {
+      font-style: normal;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.7;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.35);
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      letter-spacing: 0.3px;
+    }
+
+    /* ─── RESPONSIVE LAYOUTS ────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .main-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding-top: 20px;
+      }
+      .info-column {
+        text-align: center;
+        padding-right: 0;
+        align-items: center;
+      }
+      .badge {
+        align-self: center;
+      }
+      .features-list {
+        max-width: 600px;
+      }
+      .feature-item {
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .footer-offices {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      header {
+        padding: 20px 20px 5px;
+      }
+      .logo-wrap img {
+        height: 80px;
+      }
+      .main-content {
+        padding: 10px 20px 30px;
+      }
+      .features-list {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background slideshow -->
+  <div class="bg-slideshow">
+    <div class="bg-slide active"></div>
+    <div class="bg-slide"></div>
+  </div>
+  <div class="bg-overlay"></div>
+
+  <div class="page">
+
+    <!-- Header: Centered Logo -->
+    <header>
+      <div class="logo-wrap">
+        <img
+          src="assets/logo/8fef4c6a-f526-4866-aa26-b6112f2aec5c-removebg-preview.png"
+          alt="Liberty Overseas Brothers Limited"
+        />
+      </div>
+    </header>
+
+    <!-- Main Content: Two Columns Split -->
+    <main class="main-content">
+      
+      <!-- Left Column: Contractor / Company Info -->
+      <div class="info-column">
+        <h1>Let's Build &amp; Source Together</h1>
+        <p>
+          Liberty Overseas Brothers Ltd (LOBL) is a premier partner for turn-key civil engineering, infrastructure development, high-value procurement, and supply chain logistics. From structural execution to cross-border sourcing, we deliver quality and reliability.
+        </p>
+
+        <div class="features-list">
+          <div class="feature-item">
+            <div class="feature-text">
+              <h3>Civil Works &amp; Infrastructure</h3>
+              <p>Roads, structural foundations, and engineering solutions built to last.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-text">
+              <h3>Sourcing &amp; Procurement</h3>
+              <p>Reliable supply chains for premium industrial materials and machinery.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-text">
+              <h3>Cross-Border Logistics</h3>
+              <p>End-to-end import and export operations handling complex custom clearances.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-text">
+              <h3>Project Management</h3>
+              <p>Experienced site supervision ensuring prompt delivery and strict quality compliance.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Enquiry Form -->
+      <div class="form-column">
+        <div class="form-card">
+          <h2>Send Us an Enquiry</h2>
+          <p class="subtitle">Brief us on your project or sourcing needs below. We respond within 24 hours.</p>
+
+          <!-- Success State -->
+          <div class="success-msg" id="successMsg">
+            <div class="check-icon">✓</div>
+            <h3>Enquiry Sent Successfully</h3>
+            <p>
+              Thank you for choosing LOBL. Your project details have been recorded. A project coordinator will review your request and get in touch shortly.<br><br>
+              For urgent consultations, connect via call or WhatsApp at <strong>+234 803 311 4626</strong>.
+            </p>
+          </div>
+
+          <!-- Form -->
+          <form id="enquiryForm" novalidate>
+            <div class="form-grid">
+
+              <!-- Full Name -->
+              <div class="form-group">
+                <label for="fullName">Full Name <span style="color:#e05555">*</span></label>
+                <input
+                  type="text"
+                  id="fullName"
+                  name="fullName"
+                  placeholder="e.g. Chukwuemeka Obi"
+                  required
+                  autocomplete="name"
+                />
+              </div>
+
+              <!-- Company Name -->
+              <div class="form-group">
+                <label for="companyName">Company Name</label>
+                <input
+                  type="text"
+                  id="companyName"
+                  name="companyName"
+                  placeholder="Your organisation / Agency"
+                  autocomplete="organization"
+                />
+              </div>
+
+              <!-- Email -->
+              <div class="form-group">
+                <label for="email">Email Address <span style="color:#e05555">*</span></label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="name@company.com"
+                  required
+                  autocomplete="email"
+                />
+              </div>
+
+              <!-- Phone -->
+              <div class="form-group">
+                <label for="phone">Phone / WhatsApp <span style="color:#e05555">*</span></label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="+234 803 311 4626"
+                  required
+                  autocomplete="tel"
+                />
+              </div>
+
+              <!-- Nature of Enquiry / Project Category -->
+              <div class="form-group">
+                <label for="enquiryType">Enquiry Type <span style="color:#e05555">*</span></label>
+                <select id="enquiryType" name="enquiryType" required>
+                  <option value="" disabled selected>Select category</option>
+                  <option value="Civil Works / Construction">Civil Works / Construction</option>
+                  <option value="Procurement & Sourcing">Procurement &amp; Sourcing</option>
+                  <option value="Freight, Import & Export">Freight, Import &amp; Export</option>
+                  <option value="General Contracting">General Contracting</option>
+                  <option value="General Enquiry">General Enquiry</option>
+                </select>
+              </div>
+
+              <!-- Project Location -->
+              <div class="form-group">
+                <label for="location">Project Location</label>
+                <input
+                  type="text"
+                  id="location"
+                  name="location"
+                  placeholder="e.g. Abuja, Lagos, Port Harcourt"
+                />
+              </div>
+
+              <!-- How did you hear about us -->
+              <div class="form-group full">
+                <label for="hearAboutUs">How Did You Hear About Us?</label>
+                <select id="hearAboutUs" name="hearAboutUs">
+                  <option value="" disabled selected>Select an option</option>
+                  <option value="Referral">Referral / Word of mouth</option>
+                  <option value="Social Media">Social Media</option>
+                  <option value="Google Search">Google Search</option>
+                  <option value="LinkedIn">LinkedIn</option>
+                  <option value="Trade Event">Trade Event / Exhibition</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+
+              <!-- Project Description -->
+              <div class="form-group full">
+                <label for="message">Project Details / Message <span style="color:#e05555">*</span></label>
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="Provide scope, materials, dimensions, or details about what you need done..."
+                  required
+                ></textarea>
+              </div>
+
+            </div>
+
+            <button type="submit" class="btn-submit" id="submitBtn">
+              Send Project Enquiry →
+            </button>
+          </form>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- Footer: Scrolled into view -->
+    <footer>
+      <div class="footer-offices">
+
+        <div class="office">
+          <h4>Abuja Office</h4>
+          <address>
+            Plot 10, Cape Town Street<br>
+            Suite 003B Plaza, Wuse Zone 4<br>
+            Abuja, FCT
+          </address>
+        </div>
+
+        <div class="office">
+          <h4>Lagos Office</h4>
+          <address>
+            43, Mobolaji Bank Anthony<br>
+            Oilmill Street, Lagos Island<br>
+            G.P.O Box 7170, Marina, Lagos
+          </address>
+        </div>
+
+        <div class="office">
+          <h4>Kwara Office</h4>
+          <address>
+            15, Abdul Kadari Road<br>
+            GRA, Ilorin<br>
+            Kwara State
+          </address>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        &copy; LOBLTD 2026 &nbsp;·&nbsp; Liberty Overseas Brothers Ltd &nbsp;·&nbsp; All Rights Reserved
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    /* ─── Background Slideshow ─────────────────────────────── */
+    const slides = document.querySelectorAll('.bg-slide');
+    let current = 0;
+
+    function nextSlide() {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }
+
+    setInterval(nextSlide, 6000);
+
+    /* ─── Form Submission ──────────────────────────────────── */
+    const form        = document.getElementById('enquiryForm');
+    const successMsg  = document.getElementById('successMsg');
+    const submitBtn   = document.getElementById('submitBtn');
+
+    const WHATSAPP_NUMBER = '2348033114626';
+    const EMAIL_TO        = 'info@lobltd.co';
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      // Basic validation
+      const required = form.querySelectorAll('[required]');
+      let valid = true;
+      required.forEach(field => {
+        field.style.borderColor = '';
+        if (!field.value.trim()) {
+          field.style.borderColor = '#e05555';
+          valid = false;
+        }
+      });
+
+      if (!valid) return;
+
+      // Collect values
+      const fullName    = document.getElementById('fullName').value.trim();
+      const companyName = document.getElementById('companyName').value.trim();
+      const email       = document.getElementById('email').value.trim();
+      const phone       = document.getElementById('phone').value.trim();
+      const enquiryType = document.getElementById('enquiryType').value;
+      const location    = document.getElementById('location').value.trim();
+      const hearAbout   = document.getElementById('hearAboutUs').value;
+      const message     = document.getElementById('message').value.trim();
+
+      // Build WhatsApp message
+      const waText = [
+        `*New Project Enquiry – LOBL Contractors*`,
+        ``,
+        `*Name:* ${fullName}`,
+        companyName ? `*Company:* ${companyName}` : null,
+        `*Email:* ${email}`,
+        `*Phone:* ${phone}`,
+        `*Category:* ${enquiryType}`,
+        location  ? `*Project Location:* ${location}` : null,
+        hearAbout ? `*Ref:* ${hearAbout}` : null,
+        ``,
+        `*Project Details:*`,
+        message,
+      ].filter(Boolean).join('\n');
+
+      const waUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(waText)}`;
+
+      // Build mailto link
+      const subject = `LOBL Project Enquiry – ${enquiryType}`;
+      const body = [
+        `Full Name: ${fullName}`,
+        companyName ? `Company: ${companyName}` : null,
+        `Email: ${email}`,
+        `Phone: ${phone}`,
+        `Project Category: ${enquiryType}`,
+        location  ? `Project Location: ${location}` : null,
+        hearAbout ? `How they heard about us: ${hearAbout}` : null,
+        ``,
+        `Project Details:`,
+        message,
+      ].filter(Boolean).join('\n');
+
+      const mailtoUrl = `mailto:${EMAIL_TO}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+      // Disable button
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting...';
+
+      // Open WhatsApp, then mailto
+      setTimeout(() => {
+        window.open(waUrl, '_blank');
+        setTimeout(() => { window.location.href = mailtoUrl; }, 800);
+
+        // Transition states
+        form.style.display    = 'none';
+        successMsg.style.display = 'block';
+      }, 600);
+    });
+  </script>
+</body>
+</html>
