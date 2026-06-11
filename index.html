@@ -480,171 +480,182 @@
       
       <!-- Left Column: Contractor / Company Info -->
       <div class="info-column">
-        <h1>Let's Build &amp; Source Together</h1>
-        <p>
-          Liberty Overseas Brothers Limited (LOB) is a premier partner for turn-key civil engineering, infrastructure development, high-value procurement, and supply chain logistics. From structural execution to cross-border sourcing, we deliver quality and reliability.
-        </p>
+  <h1>Let's Build &amp; Source Together</h1>
+  <p>
+    Liberty Overseas Brothers Limited (LOB) is a premier partner for turn-key civil engineering, infrastructure development, high-value procurement, and supply chain logistics. From structural execution to cross-border sourcing, we deliver quality and reliability.
+  </p>
 
-        <div class="features-list">
-          <div class="feature-item">
-            <div class="feature-text">
-              <h3>Civil Works &amp; Infrastructure</h3>
-              <p>Roads, structural foundations, and engineering solutions built to last.</p>
-            </div>
-          </div>
-          <div class="feature-item">
-            <div class="feature-text">
-              <h3>Sourcing &amp; Procurement</h3>
-              <p>Reliable supply chains for premium industrial materials and machinery.</p>
-            </div>
-          </div>
-          <div class="feature-item">
-            <div class="feature-text">
-              <h3>Cross-Border Logistics</h3>
-              <p>End-to-end import and export operations handling complex custom clearances.</p>
-            </div>
-          </div>
-          <div class="feature-item">
-            <div class="feature-text">
-              <h3>Project Management</h3>
-              <p>Experienced site supervision ensuring prompt delivery and strict quality compliance.</p>
-            </div>
-          </div>
+  <div class="features-list">
+    <div class="feature-item">
+      <div class="feature-text">
+        <h3>Civil Works &amp; Infrastructure</h3>
+        <p>Roads, structural foundations, and engineering solutions built to last.</p>
+      </div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-text">
+        <h3>Sourcing &amp; Procurement</h3>
+        <p>Reliable supply chains for premium industrial materials and machinery.</p>
+      </div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-text">
+        <h3>Cross-Border Logistics</h3>
+        <p>End-to-end import and export operations handling complex custom clearances.</p>
+      </div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-text">
+        <h3>Electrical Engineering</h3>
+        <p>Commercial and industrial electrical installations, wiring, and power distribution systems.</p>
+      </div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-text">
+        <h3>Renewable Energy Solutions</h3>
+        <p>Solar systems, hybrid power solutions, and sustainable energy infrastructure for commercial and industrial projects.</p>
+      </div>
+    </div>
+    <div class="feature-item">
+      <div class="feature-text">
+        <h3>Project Management</h3>
+        <p>Experienced site supervision ensuring prompt delivery and strict quality compliance.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Right Column: Enquiry Form -->
+<div class="form-column">
+  <div class="form-card">
+    <h2>Send Us an Enquiry</h2>
+    <p class="subtitle">Brief us on your project or sourcing needs below. We respond within 24 hours.</p>
+
+    <!-- Success State -->
+    <div class="success-msg" id="successMsg">
+      <div class="check-icon">✓</div>
+      <h3>Enquiry Sent Successfully</h3>
+      <p>
+        Thank you for choosing LOBL. Your project details have been recorded. A project coordinator will review your request and get in touch shortly.<br><br>
+        For urgent consultations, connect via call or WhatsApp at <strong>+234 803 311 4626</strong>.
+      </p>
+    </div>
+
+    <!-- Form -->
+    <form id="enquiryForm" novalidate>
+      <div class="form-grid">
+
+        <!-- Full Name -->
+        <div class="form-group">
+          <label for="fullName">Full Name <span style="color:#e05555">*</span></label>
+          <input
+            type="text"
+            id="fullName"
+            name="fullName"
+            placeholder="e.g. Chukwuemeka Obi"
+            required
+            autocomplete="name"
+          />
         </div>
+
+        <!-- Company Name -->
+        <div class="form-group">
+          <label for="companyName">Company Name</label>
+          <input
+            type="text"
+            id="companyName"
+            name="companyName"
+            placeholder="Your organisation / Agency"
+            autocomplete="organization"
+          />
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+          <label for="email">Email Address <span style="color:#e05555">*</span></label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="name@company.com"
+            required
+            autocomplete="email"
+          />
+        </div>
+
+        <!-- Phone -->
+        <div class="form-group">
+          <label for="phone">Phone / WhatsApp <span style="color:#e05555">*</span></label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="+234 803 311 4626"
+            required
+            autocomplete="tel"
+          />
+        </div>
+
+        <!-- Nature of Enquiry / Project Category -->
+        <div class="form-group">
+          <label for="enquiryType">Enquiry Type <span style="color:#e05555">*</span></label>
+          <select id="enquiryType" name="enquiryType" required>
+            <option value="" disabled selected>Select category</option>
+            <option value="Civil Works / Construction">Civil Works / Construction</option>
+            <option value="Procurement & Sourcing">Procurement &amp; Sourcing</option>
+            <option value="Freight, Import & Export">Freight, Import &amp; Export</option>
+            <option value="General Contracting">General Contracting</option>
+            <option value="Electrical Engineering">Electrical Engineering</option>
+            <option value="Renewable Energy Solutions">Renewable Energy Solutions</option>
+            <option value="General Enquiry">General Enquiry</option>
+          </select>
+        </div>
+
+        <!-- Project Location -->
+        <div class="form-group">
+          <label for="location">Project Location</label>
+          <input
+            type="text"
+            id="location"
+            name="location"
+            placeholder="e.g. Abuja, Lagos, Port Harcourt"
+          />
+        </div>
+
+        <!-- How did you hear about us -->
+        <div class="form-group full">
+          <label for="hearAboutUs">How Did You Hear About Us?</label>
+          <select id="hearAboutUs" name="hearAboutUs">
+            <option value="" disabled selected>Select an option</option>
+            <option value="Referral">Referral / Word of mouth</option>
+            <option value="Social Media">Social Media</option>
+            <option value="Google Search">Google Search</option>
+            <option value="LinkedIn">LinkedIn</option>
+            <option value="Trade Event">Trade Event / Exhibition</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <!-- Project Description -->
+        <div class="form-group full">
+          <label for="message">Project Details / Message <span style="color:#e05555">*</span></label>
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Provide scope, materials, dimensions, or details about what you need done..."
+            required
+          ></textarea>
+        </div>
+
       </div>
 
-      <!-- Right Column: Enquiry Form -->
-      <div class="form-column">
-        <div class="form-card">
-          <h2>Send Us an Enquiry</h2>
-          <p class="subtitle">Brief us on your project or sourcing needs below. We respond within 24 hours.</p>
-
-          <!-- Success State -->
-          <div class="success-msg" id="successMsg">
-            <div class="check-icon">✓</div>
-            <h3>Enquiry Sent Successfully</h3>
-            <p>
-              Thank you for choosing LOBL. Your project details have been recorded. A project coordinator will review your request and get in touch shortly.<br><br>
-              For urgent consultations, connect via call or WhatsApp at <strong>+234 803 311 4626</strong>.
-            </p>
-          </div>
-
-          <!-- Form -->
-          <form id="enquiryForm" novalidate>
-            <div class="form-grid">
-
-              <!-- Full Name -->
-              <div class="form-group">
-                <label for="fullName">Full Name <span style="color:#e05555">*</span></label>
-                <input
-                  type="text"
-                  id="fullName"
-                  name="fullName"
-                  placeholder="e.g. Chukwuemeka Obi"
-                  required
-                  autocomplete="name"
-                />
-              </div>
-
-              <!-- Company Name -->
-              <div class="form-group">
-                <label for="companyName">Company Name</label>
-                <input
-                  type="text"
-                  id="companyName"
-                  name="companyName"
-                  placeholder="Your organisation / Agency"
-                  autocomplete="organization"
-                />
-              </div>
-
-              <!-- Email -->
-              <div class="form-group">
-                <label for="email">Email Address <span style="color:#e05555">*</span></label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  placeholder="name@company.com"
-                  required
-                  autocomplete="email"
-                />
-              </div>
-
-              <!-- Phone -->
-              <div class="form-group">
-                <label for="phone">Phone / WhatsApp <span style="color:#e05555">*</span></label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  placeholder="+234 803 311 4626"
-                  required
-                  autocomplete="tel"
-                />
-              </div>
-
-              <!-- Nature of Enquiry / Project Category -->
-              <div class="form-group">
-                <label for="enquiryType">Enquiry Type <span style="color:#e05555">*</span></label>
-                <select id="enquiryType" name="enquiryType" required>
-                  <option value="" disabled selected>Select category</option>
-                  <option value="Civil Works / Construction">Civil Works / Construction</option>
-                  <option value="Procurement & Sourcing">Procurement &amp; Sourcing</option>
-                  <option value="Freight, Import & Export">Freight, Import &amp; Export</option>
-                  <option value="General Contracting">General Contracting</option>
-                  <option value="General Enquiry">General Enquiry</option>
-                </select>
-              </div>
-
-              <!-- Project Location -->
-              <div class="form-group">
-                <label for="location">Project Location</label>
-                <input
-                  type="text"
-                  id="location"
-                  name="location"
-                  placeholder="e.g. Abuja, Lagos, Port Harcourt"
-                />
-              </div>
-
-              <!-- How did you hear about us -->
-              <div class="form-group full">
-                <label for="hearAboutUs">How Did You Hear About Us?</label>
-                <select id="hearAboutUs" name="hearAboutUs">
-                  <option value="" disabled selected>Select an option</option>
-                  <option value="Referral">Referral / Word of mouth</option>
-                  <option value="Social Media">Social Media</option>
-                  <option value="Google Search">Google Search</option>
-                  <option value="LinkedIn">LinkedIn</option>
-                  <option value="Trade Event">Trade Event / Exhibition</option>
-                  <option value="Other">Other</option>
-                </select>
-              </div>
-
-              <!-- Project Description -->
-              <div class="form-group full">
-                <label for="message">Project Details / Message <span style="color:#e05555">*</span></label>
-                <textarea
-                  id="message"
-                  name="message"
-                  placeholder="Provide scope, materials, dimensions, or details about what you need done..."
-                  required
-                ></textarea>
-              </div>
-
-            </div>
-
-            <button type="submit" class="btn-submit" id="submitBtn">
-              Send Project Enquiry →
-            </button>
-          </form>
-        </div>
-      </div>
-
-    </main>
-
-    <!-- Footer: Scrolled into view -->
+      <button type="submit" class="btn-submit" id="submitBtn">
+        Send Project Enquiry →
+      </button>
+    </form>
+  </div>
+</div>
+      <!-- Footer: Scrolled into view -->
     <footer>
       <div class="footer-offices">
 
